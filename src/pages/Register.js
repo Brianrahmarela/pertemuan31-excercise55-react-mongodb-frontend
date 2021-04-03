@@ -26,7 +26,7 @@ function Register() {
   }
   return (
     <div>
-      <h2>Register</h2>
+      <h1>Register</h1>
       <form onSubmit={(event)=>{
         dispatch(registerActions(register, event, history))
       }}>
