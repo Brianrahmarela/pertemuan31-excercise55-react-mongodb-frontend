@@ -48,9 +48,13 @@ export const loginActions = (values, event, history) => {
     .then((response) => {
       console.log('response login dari server', response);
 
-      localStorage.setItem('token', response.data.token)
-      dispatch(setLogin(response.data.token))
-      history.push('/');  
+      if(response.data.token !== undefined){
+        localStorage.setItem('token', response.data.token)
+        dispatch(setLogin(response.data.token))
+        history.push('/');  
+      } else {
+        alert('Username & password salah');
+      }
     })
     .catch((error) => console.log(error));
   }
