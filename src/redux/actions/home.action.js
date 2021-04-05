@@ -12,14 +12,19 @@ export const setDetailUkm = (data) => {
 
 export const detailUkmAction = () =>  {
   return function(dispatch){
+    const token = localStorage.getItem("token");
 
-    axios.get('https://p31-excercise55-mongod-backend.herokuapp.com/detailukm')
-    .then((response) => {
-      console.log("response dari server detail ukm", response);
-      dispatch(setDetailUkm(response.data))
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    axios.get('https://p31-excercise55-mongod-backend.herokuapp.com/detailukm', {
+      headers: {
+        Authorization: 'Bearer ' + token //the token is a variable which holds the token
+      }
+     })
+     .then((response) => {
+        console.log("response dari server detail ukm", response);
+        dispatch(setDetailUkm(response.data))
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 }
