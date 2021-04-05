@@ -15,13 +15,17 @@ function Home() {
     <div>
       <h1>Home</h1><br></br>
       <h3>Get data detail ukm</h3>
-
-      {detailUkm.map((item) => (
-        <div key={item._id}>
-          <p>Nama Mahasiswa: <b>{item.nama.name}</b></p>  
-          <p>Ukm: <b>{item.ukm.namaUkm}</b></p>  
-        </div>
-        ))}
+      {
+         Object.entries(detailUkm).map(([item, value]) => (
+          console.log('ini item',item),
+          console.log('ini value',value),
+          <div key={item}>
+            <p>{value.name}</p>
+            <p>{value.namaUkm}</p>
+            <p>{value.jenisUkm}</p>
+          </div>
+          ))   
+      }
     </div>
   )
 }

@@ -14,7 +14,7 @@ export const detailUkmAction = () =>  {
   return function(dispatch){
     const token = localStorage.getItem("token");
 
-    axios.get('https://p31-excercise55-mongod-backend.herokuapp.com/detailukm', {
+    axios.get('https://p31-excercise55-mongod-backend.herokuapp.com/detailukm/idmahasiswa', {
       headers: {
         Authorization: 'Bearer ' + token //the token is a variable which holds the token
       }
